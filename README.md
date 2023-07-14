@@ -4,7 +4,7 @@ This repo contains artifacts for my amazonwebshark tech blog.  This repo was cre
 ## What This Repo Contains
 The following list is not exhaustive:
 
-- Architecture Diagrams, either as images or as the code used to generate them.
+- Architecture Diagrams, either as images and/or as the [Diagrams.Net](https://app.diagrams.net/) code used to generate them.
 - Scripts of actual solutions, with redactions where needed.
 - Scripts of hypothetical solutions within the blog's context.
 - Supporting content for posts that may not have been used in the final product.
@@ -17,12 +17,40 @@ The following list is not exhaustive:
 # Contents
 This list will start with the most recently dated entry, working backwards.
 
-## 2023-07-11-EmotiveAmigaCode
+## 2023
+
+### 2023-07-11-EmotiveAmigaCode
 Related blog post: [Emotive Amiga Code](https://amazonwebshark.com/emotive-amiga-code/)
 
 Contents: AMOS Solo Pong tutorial scripts.
 
-## 2023-04-30-AutomatingApplicationManagementWithWinget
+
+### 2023-04-30-AutomatingApplicationManagementWithWinget
 Related blog post: [Automating Application Management With Winget](https://amazonwebshark.com/automating-application-management-with-winget/)
 
 Contents: Redacted Powershell script showing Winget uses.
+
+## 2022
+
+### 2022-12-29-MigratingAmazonwebsharkToSiteGround
+Related blog post: [Migrating amazonwebshark To SiteGround](https://amazonwebshark.com/migrating-amazonwebshark-to-siteground/)
+
+Contents: Architecture Diagram used in post and supporting [Diagrams.Net](https://app.diagrams.net/) code.
+
+
+### 2022-08-10-IngestingiTunesDataIntoAWSWithPythonAndAthena
+Related blog post: [Ingesting iTunes Data Into AWS With Python And Athena](https://amazonwebshark.com/ingesting-itunes-data-into-aws-with-python-and-athena/)
+
+Contents: Architecture Diagram used in post and supporting [Diagrams.Net](https://app.diagrams.net/) code.
+
+
+### 2022-03-15-NextLevelS3NotificationsWithEventBridge
+Related blog post: [Next-Level S3 Notifications With EventBridge](https://amazonwebshark.com/next-level-s3-notifications-with-eventbridge/)
+
+Contents: Architecture Diagram used in post and supporting [Diagrams.Net](https://app.diagrams.net/) code.
+
+
+### 2022-02-15-CreatingSecurityAlertsForAWSConsoleAccess
+Related blog post: [Creating Security Alerts For AWS Console Access](https://amazonwebshark.com/creating-security-alerts-for-aws-console-access/)
+
+Contents: Architecture Diagram used in post and supporting [Diagrams.Net](https://app.diagrams.net/) code.
