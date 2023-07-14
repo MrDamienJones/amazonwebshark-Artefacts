@@ -19,8 +19,10 @@ This list will start with the most recently dated entry, working backwards.
 
 ## 2023-07-11-EmotiveAmigaCode
 Related blog post: [Emotive Amiga Code](https://amazonwebshark.com/emotive-amiga-code/)
+
 Contents: AMOS Solo Pong tutorial scripts.
 
 ## 2023-04-30-AutomatingApplicationManagementWithWinget
 Related blog post: [Automating Application Management With Winget](https://amazonwebshark.com/automating-application-management-with-winget/)
+
 Contents: Redacted Powershell script showing Winget uses.
