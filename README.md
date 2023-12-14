@@ -11,8 +11,10 @@ The following list is not exhaustive:
 
 ## What This Repo Doesn't Contain
 - Solutions, redacted or otherwise, where it makes sense for them to have their own repos (for instance, a Python module)
-- Code snippets that have a good reason to be on GitHub Gists (for example, i want to embed them into the post instead of posting a link)
+- Code snippets that have a good reason to be on GitHub Gists (for example, I want to embed them into the post instead of posting a link)
 
+# Advisory
+Scripts within this repo have been written at various points along my learning journey.  They do not represent best practices, may include unexpected bugs, and may become obsolete.  Please keep this in mind.
 
 # Contents
 This list will start with the most recently dated entry, working backwards.
