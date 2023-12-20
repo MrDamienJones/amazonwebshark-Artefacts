@@ -1,12 +1,12 @@
 # Introduction
-This repo contains artifacts for my amazonwebshark tech blog.  This repo was created to remove the need for multiple smaller repos containing only a couple of files, and to reduce the amount of GitHub Gists to make them easier to navigate.
+This repo contains artefacts for my amazonwebshark tech blog.  It was created to remove the need for multiple repos containing small collections of artefacts, and to reduce the volume of GitHub Gists.
 
 ## What This Repo Contains
 The following list is not exhaustive:
 
 - Architecture Diagrams, either as images and/or as the [Diagrams.Net](https://app.diagrams.net/) code used to generate them.
 - Scripts of actual solutions, with redactions where needed.
-- Scripts of hypothetical solutions within the blog's context.
+- Scripts of hypothetical solutions within a post's context.
 - Supporting content for posts that may not have been used in the final product.
 
 ## What This Repo Doesn't Contain
@@ -14,7 +14,7 @@ The following list is not exhaustive:
 - Code snippets that have a good reason to be on GitHub Gists (for example, I want to embed them into the post instead of posting a link)
 
 # Advisory
-Artifacts within this repo have been created at various points along my learning journey.  They do not represent best practices, may be poorly optimised or include unexpected bugs, and may become obsolete.  Please keep this in mind.
+Artefacts within this repo have been created at various points along my learning journey.  They do not represent best practices, may be poorly optimised or include unexpected bugs, and may become obsolete.  Please keep this in mind when browsing.
 
 # Contents
 This list will start with the most recently dated entry, working backwards.
