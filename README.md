@@ -14,7 +14,7 @@ The following list is not exhaustive:
 - Code snippets that have a good reason to be on GitHub Gists (for example, I want to embed them into the post instead of posting a link)
 
 # Advisory
-Scripts within this repo have been written at various points along my learning journey.  They do not represent best practices, may include unexpected bugs, and may become obsolete.  Please keep this in mind.
+Artifacts within this repo have been created at various points along my learning journey.  They do not represent best practices, may be poorly optimised or include unexpected bugs, and may become obsolete.  Please keep this in mind.
 
 # Contents
 This list will start with the most recently dated entry, working backwards.
