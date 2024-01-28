@@ -17,6 +17,13 @@ The following list is not exhaustive:
 # Contents
 This list will start with the most recently dated entry, working backwards.
 
+## 2024
+
+### 2024-02-02-ExtractingWordPressAPIDataWithPython&AWS
+Related blog post: TBC
+
+Contents: Python script for extracting WordPress API raw data.
+
 ## 2023
 
 ### 2023-07-11-EmotiveAmigaCode
