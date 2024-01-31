@@ -70,7 +70,7 @@ def get_wordpress_api_json(requests_session, api_url: str, api_call_timeout: int
 
         else:
             logging.error(f"API response: {response.status_code} {response.reason} - {response.text}")
-            raise Exception
+            raise ValueError (f"API response: {response.status_code} {response.reason} - {response.text}")
 
     except requests.exceptions.Timeout:
         logging.error(f"API call request timed out after {api_call_timeout} seconds!")
@@ -117,7 +117,7 @@ def lambda_handler(event, context):
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s]: %(message)s",
-        datefmt = "%Y-%m-%d %H:%M:%S"
+        datefmt="%Y-%m-%d %H:%M:%S"
         )
 
 
