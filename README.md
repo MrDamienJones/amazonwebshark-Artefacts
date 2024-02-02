@@ -22,13 +22,15 @@ This list will start with the most recently dated entry, working backwards.
 ## 2024
 
 ### 2024-02-02-UsingPython&AWSToExtractWordPressAPIData&AWS
-Related blog post: TBC
+Related blog post: [Using Python & AWS To Extract WordPress API Data](https://amazonwebshark.com/using-python-aws-to-extract-wordpress-api-data/)
 
-Contents: 
+Contents:
 
 - Python script for extracting WordPress API raw data.
-> TBC Architecture Diagram used in post.
-> TBC Supporting [Diagrams.Net](https://app.diagrams.net/) code.
+- `requirements.txt` file for Python virtual environment.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) architectural diagram code.
+
+<br>
 
 ## 2023
 
@@ -47,6 +49,8 @@ Contents:
 
 - Redacted Powershell script showing Winget uses.
 
+<br>
+
 ## 2022
 
 ### 2022-12-29-MigratingAmazonwebsharkToSiteGround
@@ -55,7 +59,7 @@ Related blog post: [Migrating amazonwebshark To SiteGround](https://amazonwebsha
 Contents: 
 
 - Architecture Diagram used in post.
-- Supporting [Diagrams.Net](https://app.diagrams.net/) code.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) architectural diagram code.
 
 
 ### 2022-08-10-IngestingiTunesDataIntoAWSWithPythonAndAthena
@@ -64,7 +68,7 @@ Related blog post: [Ingesting iTunes Data Into AWS With Python And Athena](https
 Contents: 
 
 - Architecture Diagram used in post.
-- Supporting [Diagrams.Net](https://app.diagrams.net/) code.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) architectural diagram code.
 
 
 ### 2022-03-15-NextLevelS3NotificationsWithEventBridge
@@ -73,7 +77,7 @@ Related blog post: [Next-Level S3 Notifications With EventBridge](https://amazon
 Contents: 
 
 - Architecture Diagram used in post.
-- Supporting [Diagrams.Net](https://app.diagrams.net/) code.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) architectural diagram code.
 
 
 ### 2022-02-15-CreatingSecurityAlertsForAWSConsoleAccess
@@ -82,4 +86,4 @@ Related blog post: [Creating Security Alerts For AWS Console Access](https://ama
 Contents: 
 
 - Architecture Diagram used in post.
-- Supporting [Diagrams.Net](https://app.diagrams.net/) code.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) architectural diagram code.
