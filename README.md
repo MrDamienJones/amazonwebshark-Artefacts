@@ -21,6 +21,16 @@ This list will start with the most recently dated entry, working backwards.
 
 ## 2024
 
+### 2024-02-16-UsingPythonAndAWSToExtractWordPressAPIData
+Related blog post: [WordPress Data Extraction Automation With AWS](https://amazonwebshark.com/wordpress-data-extraction-automation-with-aws/)
+
+Contents:
+
+- Python script for extracting WordPress API raw data with AWS SNS alerting.
+- `requirements.txt` file for Python virtual environment.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) architectural diagram code.
+
+
 ### 2024-02-02-UsingPython&AWSToExtractWordPressAPIData&AWS
 Related blog post: [Using Python & AWS To Extract WordPress API Data](https://amazonwebshark.com/using-python-aws-to-extract-wordpress-api-data/)
 
