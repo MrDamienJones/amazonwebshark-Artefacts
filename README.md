@@ -21,6 +21,20 @@ This list will start with the most recently dated entry, working backwards.
 
 ## 2024
 
+### 2024-03-27-WordPressBronzeDataOrchestrationWithAWS
+Related blog post: [WordPress Bronze Data Orchestration With AWS](https://amazonwebshark.com/wordpress-bronze-data-orchestration-with-aws/)
+
+Contents:
+
+- Python script for extracting WordPress API raw data with AWS SNS alerting.
+- `requirements_raw.txt` file for Python raw virtual environment.
+- Python script for extracting WordPress API bronze data with AWS SNS alerting.
+- `requirements_bronze.txt` file for Python bronze virtual environment.
+- JSON Step Functions code for `Wordpress_Raw_To_Bronze` state machine.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) Bronze Lambda architectural diagram code.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) Step Function architectural diagram code.
+
+
 ### 2024-02-16-UsingPythonAndAWSToExtractWordPressAPIData
 Related blog post: [WordPress Data Extraction Automation With AWS](https://amazonwebshark.com/wordpress-data-extraction-automation-with-aws/)
 
