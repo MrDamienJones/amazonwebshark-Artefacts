@@ -21,6 +21,16 @@ This list will start with the most recently dated entry, working backwards.
 
 ## 2024
 
+### 2024-05-30-DataDiscoveryWithAWSGlue
+Related blog post: [Discovering Data With AWS Glue](https://amazonwebshark.com/discovering-data-with-aws-glue/)
+
+Contents:
+
+- Updated JSON Step Functions code for `Wordpress_Raw_To_Bronze` state machine.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) Bronze Glue Crawler architectural diagram code.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) updated Step Function architectural diagram code.
+
+
 ### 2024-03-27-WordPressBronzeDataOrchestrationWithAWS
 Related blog post: [WordPress Bronze Data Orchestration With AWS](https://amazonwebshark.com/wordpress-bronze-data-orchestration-with-aws/)
 

@@ -1,0 +1,70 @@
+{
+    "Comment": "Runs Lambda functions to ingest WordPress API data and transform to Parquet.",
+    "StartAt": "data_wordpressapi_raw",
+    "States": {
+      "data_wordpressapi_raw": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::lambda:invoke",
+        "Parameters": {
+          "Payload.$": "$",
+          "FunctionName": "arn:aws:lambda:eu-west-1:[REDACTED]:function:data_wordpressapi_raw:$LATEST"
+        },
+        "Next": "data_wordpressapi_bronze",
+        "Catch": [
+          {
+            "ErrorEquals": [
+              "States.ALL"
+            ],
+            "ResultPath": "$.Error",
+            "Next": "PublishFailure"
+          }
+        ],
+        "TimeoutSeconds": 120
+      },
+      "data_wordpressapi_bronze": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::lambda:invoke",
+        "Parameters": {
+          "Payload.$": "$",
+          "FunctionName": "arn:aws:lambda:eu-west-1:[REDACTED]:function:data_wordpressapi_bronze:$LATEST"
+        },
+        "Catch": [
+          {
+            "ErrorEquals": [
+              "States.ALL"
+            ],
+            "ResultPath": "$.Error",
+            "Next": "PublishFailure"
+          }
+        ],
+        "TimeoutSeconds": 120,
+        "Next": "Start Bronze Crawler"
+      },
+      "Start Bronze Crawler": {
+        "Type": "Task",
+        "End": true,
+        "Parameters": {
+          "Name": "wordpress_bronze"
+        },
+        "Resource": "arn:aws:states:::aws-sdk:glue:startCrawler",
+        "Catch": [
+          {
+            "ErrorEquals": [
+              "States.ALL"
+            ],
+            "Next": "PublishFailure"
+          }
+        ]
+      },
+      "PublishFailure": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::sns:publish",
+        "Parameters": {
+          "TopicArn": "arn:aws:sns:eu-west-1:[REDACTED]:failure-stepfunction",
+          "Message": "An error occurred in the state machine: { \"error\": \"$.Error\" }"
+        },
+        "End": true,
+        "TimeoutSeconds": 120
+      }
+    }
+  }
