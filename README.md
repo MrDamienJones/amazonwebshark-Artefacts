@@ -21,6 +21,18 @@ This list will start with the most recently dated entry, working backwards.
 
 ## 2024
 
+
+### 2024-08-12-SilverLayerPythonETLWithTheAWSGlueETLJobScriptEditor
+Related blog post: [Silver Layer Python ETL With The AWS Glue ETL Job Script Editor](https://amazonwebshark.com/silver-layer-python-etl-with-the-aws-glue-etl-job-script-editor/)
+
+Contents:
+
+- Python script for Silver WordPress API ETL process.
+- Updated JSON Step Functions code for `Wordpress_Raw_To_Bronze` state machine.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) Glue Silver ETL Job architectural diagram code.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) updated Step Function architectural diagram code.
+
+
 ### 2024-05-30-DataDiscoveryWithAWSGlue
 Related blog post: [Discovering Data With AWS Glue](https://amazonwebshark.com/discovering-data-with-aws-glue/)
 
