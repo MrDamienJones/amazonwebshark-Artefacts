@@ -1,0 +1,61 @@
+# silver-posts data quality rules
+Rules = [
+    # all data
+    ColumnCount = 15,
+    RowCount > 0,
+    RowCountMatch "wordpress_api.bronze-posts" = 1.0,
+    
+    # id
+    IsPrimaryKey "id",
+    
+    # post_date
+    IsComplete "post_date",
+    
+    # post_title
+    IsComplete "post_title",
+    
+    # post_status
+    IsComplete "post_status",
+    
+    # post_modified
+    IsComplete "post_modified",
+    
+    # post_parent
+    IsComplete "post_parent",
+    ColumnValues "post_parent" >= 0,
+    
+    # post_type
+    IsComplete "post_type",
+    
+    # post_date_todate
+    IsComplete "post_date_todate",
+    ColumnValues "post_date_todate" <= now(),
+    
+    # post_date_year
+    IsComplete "post_date_year",
+    ColumnValues "post_date_year" >= 2021,
+    
+    # post_date_month
+    IsComplete "post_date_month",
+    ColumnValues "post_date_month" between 0 and 13,
+    
+    # post_date_day
+    IsComplete "post_date_day",
+    ColumnValues "post_date_day" between 0 and 32,
+    
+    # post_modified_todate
+    IsComplete "post_modified_todate",
+    ColumnValues "post_modified_todate" <= now(),
+    
+    # post_modified_year
+    IsComplete "post_modified_year",
+    ColumnValues "post_modified_year" >= 2021,
+    
+    # post_modified_month
+    IsComplete "post_modified_month",
+    ColumnValues "post_modified_month" between 0 and 13,
+    
+    # post_modified_day
+    IsComplete "post_modified_day",
+    ColumnValues "post_modified_day" between 0 and 32
+]

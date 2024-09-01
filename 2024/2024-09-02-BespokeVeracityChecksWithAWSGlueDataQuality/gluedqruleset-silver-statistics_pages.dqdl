@@ -1,0 +1,45 @@
+# silver-statistics_pages data quality rules
+Rules = [
+    # all data
+    ColumnCount = 10,
+    RowCount > 0,
+    RowCountMatch "wordpress_api.bronze-statistics_pages" = 1.0,
+    
+    # page_id
+    IsPrimaryKey "page_id",
+    
+    # uri
+    IsComplete "uri",
+    
+    # type
+    IsComplete "type",
+    
+    # date
+    IsComplete "date",
+    ColumnValues "date_todate" <= now(),
+    
+    # count
+    IsComplete "count",
+    ColumnValues "count" between 0 and 1000,
+    
+    # id
+    IsComplete "id",
+    ReferentialIntegrity "id" "wordpress_api.silver-posts.id" >= 0.9,
+    
+    # date_todate
+    IsComplete "date_todate",
+    ColumnValues "date_todate" <= now(),
+    
+    # date_year
+    IsComplete "date_year",
+    ColumnValues "date_year" >= 2021,
+    
+    # date_month
+    IsComplete "date_month",
+    ColumnValues "date_month" between 0 and 13,
+    
+    # date_day
+    IsComplete "date_day",
+    ColumnValues "date_day" between 0 and 32
+
+]

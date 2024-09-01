@@ -22,6 +22,16 @@ This list will start with the most recently dated entry, working backwards.
 ## 2024
 
 
+### 2024-09-02-2024-09-02-BespokeVeracityChecksWithAWSGlueDataQuality
+Related blog post: [Bespoke Veracity Checks With AWS Glue Data Quality](https://amazonwebshark.com/bespoke-veracity-checks-with-aws-glue-data-quality/)
+
+Contents:
+
+- Glue Data Quality ruleset for `silver-posts` dataset.
+- Glue Data Quality ruleset for `silver-statistics_pages` dataset.
+- Updated JSON Step Functions code for `Wordpress_Raw_To_Bronze` state machine.
+
+
 ### 2024-08-12-SilverLayerPythonETLWithTheAWSGlueETLJobScriptEditor
 Related blog post: [Silver Layer Python ETL With The AWS Glue ETL Job Script Editor](https://amazonwebshark.com/silver-layer-python-etl-with-the-aws-glue-etl-job-script-editor/)
 
