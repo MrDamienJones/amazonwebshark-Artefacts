@@ -1,0 +1,192 @@
+{
+  "Comment": "Runs Lambda functions to ingest WordPress API data and transform to Parquet.",
+  "StartAt": "data_wordpressapi_raw",
+  "States": {
+    "data_wordpressapi_raw": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "arn:aws:lambda:eu-west-1:[REDACTED]:function:data_wordpressapi_raw:$LATEST"
+      },
+      "Next": "data_wordpressapi_bronze",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.Error",
+          "Next": "PublishFailure"
+        }
+      ],
+      "TimeoutSeconds": 120
+    },
+    "data_wordpressapi_bronze": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "arn:aws:lambda:eu-west-1:[REDACTED]:function:data_wordpressapi_bronze:$LATEST"
+      },
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.Error",
+          "Next": "PublishFailure"
+        }
+      ],
+      "TimeoutSeconds": 120,
+      "Next": "Start Bronze Crawler"
+    },
+    "Start Bronze Crawler": {
+      "Type": "Task",
+      "Parameters": {
+        "Name": "wordpress_bronze"
+      },
+      "Resource": "arn:aws:states:::aws-sdk:glue:startCrawler",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "PublishFailure"
+        }
+      ],
+      "Next": "Glue Start Silver Python Shell"
+    },
+    "Glue Start Silver Python Shell": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "wordpressapi_silver"
+      },
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "PublishFailure"
+        }
+      ],
+      "Next": "Parallel"
+    },
+    "Parallel": {
+      "Type": "Parallel",
+      "Next": "Start Silver Crawler",
+      "Branches": [
+        {
+          "StartAt": "DQ Run: silver-statistics_pages",
+          "States": {
+            "DQ Run: silver-statistics_pages": {
+              "Type": "Task",
+              "Parameters": {
+                "DataSource": {
+                  "GlueTable": {
+                    "DatabaseName": "wordpress_api",
+                    "TableName": "silver-statistics_pages"
+                  }
+                },
+                "Role": "Glue-S3ReadOnly",
+                "RulesetNames": [
+                  "silver-statistics_pages"
+                ]
+              },
+              "Resource": "arn:aws:states:::aws-sdk:glue:startDataQualityRulesetEvaluationRun",
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "DQ Run: silver-posts",
+          "States": {
+            "DQ Run: silver-posts": {
+              "Type": "Task",
+              "Parameters": {
+                "DataSource": {
+                  "GlueTable": {
+                    "DatabaseName": "wordpress_api",
+                    "TableName": "silver-posts"
+                  }
+                },
+                "Role": "Glue-S3ReadOnly",
+                "RulesetNames": [
+                  "silver-posts"
+                ]
+              },
+              "Resource": "arn:aws:states:::aws-sdk:glue:startDataQualityRulesetEvaluationRun",
+              "End": true
+            }
+          }
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "PublishFailure"
+        }
+      ]
+    },
+    "Start Silver Crawler": {
+      "Type": "Task",
+      "Parameters": {
+        "Name": "wordpress_silver"
+      },
+      "Resource": "arn:aws:states:::aws-sdk:glue:startCrawler",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "PublishFailure"
+        }
+      ],
+      "Next": "Glue Start Gold PySpark"
+    },
+    "Glue Start Gold PySpark": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "WordPress_Gold_statisticspagespostsjoin"
+      },
+      "Next": "StartCrawler",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "PublishFailure"
+        }
+      ]
+    },
+    "StartCrawler": {
+      "Type": "Task",
+      "Parameters": {
+        "Name": "wordpress-gold"
+      },
+      "Resource": "arn:aws:states:::aws-sdk:glue:startCrawler",
+      "End": true,
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "PublishFailure"
+        }
+      ]
+    },
+    "PublishFailure": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:eu-west-1:[REDACTED]:failure-stepfunction",
+        "Message": "An error occurred in the state machine: { \"error\": \"$.Error\" }"
+      },
+      "End": true,
+      "TimeoutSeconds": 120
+    }
+  }
+}

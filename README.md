@@ -21,8 +21,20 @@ This list will start with the most recently dated entry, working backwards.
 
 ## 2024
 
+Gold Layer PySpark ETL With AWS Glue Studio
 
-### 2024-09-02-2024-09-02-BespokeVeracityChecksWithAWSGlueDataQuality
+### 2024-11-15 Gold Layer PySpark ETL With AWS Glue Studio
+Related blog post: [Gold Layer PySpark ETL With AWS Glue Studio](https://amazonwebshark.com/gold-layer-pyspark-etl-with-aws-glue-studio/)
+
+Contents:
+
+- Python script for Gold WordPress API ETL process.
+- JSON Step Functions code for `Wordpress_Gold` state machine.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) Glue Gold ETL Job architectural diagram code.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) Step Function architectural diagram code.
+
+
+### 2024-09-02-BespokeVeracityChecksWithAWSGlueDataQuality
 Related blog post: [Bespoke Veracity Checks With AWS Glue Data Quality](https://amazonwebshark.com/bespoke-veracity-checks-with-aws-glue-data-quality/)
 
 Contents:
