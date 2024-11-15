@@ -23,7 +23,7 @@ This list will start with the most recently dated entry, working backwards.
 
 Gold Layer PySpark ETL With AWS Glue Studio
 
-### 2024-11-15 Gold Layer PySpark ETL With AWS Glue Studio
+### 2024-11-15-GoldLayerPySparkETLWithAWSGlueStudio
 Related blog post: [Gold Layer PySpark ETL With AWS Glue Studio](https://amazonwebshark.com/gold-layer-pyspark-etl-with-aws-glue-studio/)
 
 Contents:
