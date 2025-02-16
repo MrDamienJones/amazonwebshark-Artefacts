@@ -1,0 +1,23 @@
+{
+  "QueryLanguage": "JSONata",
+  "Comment": "A description of my state machine",
+  "StartAt": "S3 Key Checks",
+  "States": {
+    "S3 Key Checks": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Next": "Success",
+          "Condition": "{% $lowercase($split($split($states.input.detail.object.key, '/')[-1], '.')[-1]) = 'txt' and $contains($split($states.input.detail.object.key, '/')[-1], 'iTunes') and $exists($match($split($states.input.detail.object.key, '/')[-1], /\\d{4}-\\d{2}-\\d{2}/)) %}"
+        }
+      ],
+      "Default": "Fail"
+    },
+    "Success": {
+      "Type": "Succeed"
+    },
+    "Fail": {
+      "Type": "Fail"
+    }
+  }
+}

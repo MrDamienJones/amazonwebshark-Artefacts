@@ -1,0 +1,47 @@
+{
+  "QueryLanguage": "JSONata",
+  "Comment": "A description of my state machine",
+  "StartAt": "S3 Key TXT Suffix Check",
+  "States": {
+    "S3 Key TXT Suffix Check": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Next": "S3 Key iTunes String Check",
+          "Condition": "{% $lowercase($split($split($states.input.detail.object.key, '/')[-1], '.')[-1]) = 'txt' %}"
+        }
+      ],
+      "Default": "Fail",
+      "Comment": "Checks that the S3 object key contains 'TXT'"
+    },
+    "S3 Key iTunes String Check": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Next": "S3 Key Date Check",
+          "Condition": "{% $contains($split($states.input.detail.object.key, '/')[-1], 'iTunes') %}"
+        }
+      ],
+      "Comment": "Check that the S3 object key contains 'iTunes'",
+      "Default": "Fail"
+    },
+    "S3 Key Date Check": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Next": "Success",
+          "Condition": "{% $exists($match($split($states.input.detail.object.key, '/')[-1], /\\d{4}-\\d{2}-\\d{2}/)) %}"
+        }
+      ],
+      "Default": "Fail"
+    },
+    "Success": {
+      "Type": "Succeed"
+    },
+    "Fail": {
+      "Type": "Fail",
+      "Error": "ValidationFailed",
+      "Cause": "File validation failed or returned error status"
+    }
+  }
+}

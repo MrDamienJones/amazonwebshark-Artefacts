@@ -28,8 +28,8 @@ Related blog post: [Low-Code S3 Key Validation With AWS Step Functions & JSONata
 
 Contents:
 
-- JSON Step Functions code for `Wordpress_Gold` state machine.
-- JSON Step Functions code for `Wordpress_Gold` state machine.
+- JSON Step Functions code for `Data-Ingestion-iTunes-All` state machine.
+- JSON Step Functions code for `Data-Ingestion-iTunes` state machine.
 - Supporting [Diagrams.Net](https://app.diagrams.net/) Wolfie Lakehouse Ingestion Outline architectural diagram code.
 
 ## 2024
