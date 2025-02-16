@@ -21,8 +21,6 @@ This list will start with the most recently dated entry, working backwards.
 
 ## 2025
 
-Low-Code S3 Key Validation With AWS Step Functions & JSONata
-
 ### 2025-02-17-LowCodeS3KeyValidationWithAWSStepFunctionsAndJSONata
 Related blog post: [Low-Code S3 Key Validation With AWS Step Functions & JSONata](https://amazonwebshark.com/low-code-s3-key-validation-with-aws-step-functions-jsonata/)
 
@@ -33,8 +31,6 @@ Contents:
 - Supporting [Diagrams.Net](https://app.diagrams.net/) Wolfie Lakehouse Ingestion Outline architectural diagram code.
 
 ## 2024
-
-Gold Layer PySpark ETL With AWS Glue Studio
 
 ### 2024-11-15-GoldLayerPySparkETLWithAWSGlueStudio
 Related blog post: [Gold Layer PySpark ETL With AWS Glue Studio](https://amazonwebshark.com/gold-layer-pyspark-etl-with-aws-glue-studio/)
