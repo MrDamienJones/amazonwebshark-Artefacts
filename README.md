@@ -19,6 +19,19 @@ Artefacts within this repo have been created at various points along my learning
 # Contents
 This list will start with the most recently dated entry, working backwards.
 
+## 2025
+
+Low-Code S3 Key Validation With AWS Step Functions & JSONata
+
+### 2025-02-17-LowCodeS3KeyValidationWithAWSStepFunctionsAndJSONata
+Related blog post: [Low-Code S3 Key Validation With AWS Step Functions & JSONata](https://amazonwebshark.com/low-code-s3-key-validation-with-aws-step-functions-jsonata/)
+
+Contents:
+
+- JSON Step Functions code for `Data-Ingestion-iTunes-All` state machine.
+- JSON Step Functions code for `Data-Ingestion-iTunes` state machine.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) Wolfie Lakehouse Ingestion Outline architectural diagram code.
+
 ## 2024
 
 Gold Layer PySpark ETL With AWS Glue Studio
