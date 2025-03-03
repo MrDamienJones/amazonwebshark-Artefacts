@@ -1,0 +1,96 @@
+QueryLanguage: JSONata
+Comment: A description of my state machine
+StartAt: Lambda Invoke
+States:
+  Lambda Invoke:
+    Type: Task
+    Resource: arn:aws:states:::lambda:invoke
+    Output: '{% $states.result.Payload %}'
+    Arguments:
+      FunctionName: >-
+        arn:aws:lambda:eu-west-1:[REDACTED]:function:FUNCTION:$LATEST
+      Payload: '{% $states.input %}'
+    Retry:
+      - ErrorEquals:
+          - Lambda.ServiceException
+          - Lambda.AWSLambdaException
+          - Lambda.SdkClientException
+          - Lambda.TooManyRequestsException
+        IntervalSeconds: 1
+        MaxAttempts: 3
+        BackoffRate: 2
+        JitterStrategy: FULL
+    Next: Check API Status Code
+    Assign:
+      make: '{% $states.result.Payload.body.make%}'
+      yearOfManufacture: '{% $string($states.result.Payload.body.yearOfManufacture) %}'
+      engineCapacity: '{% $string($states.result.Payload.body.engineCapacity) %}'
+      co2Emissions: '{% $string($states.result.Payload.body.co2Emissions) %}'
+      fuelType: '{% $states.result.Payload.body.fuelType %}'
+      markedForExport: '{% $states.result.Payload.body.markedForExport%}'
+      colour: '{% $states.result.Payload.body.colour%}'
+    Catch:
+      - ErrorEquals:
+          - States.ALL
+        Next: 'SNS Publish: Fail'
+  Check API Status Code:
+    Type: Choice
+    Choices:
+      - Next: DynamoDB PutItem
+        Condition: '{% $statusCode = 200 %}'
+    Default: 'SNS Publish: Fail'
+  'SNS Publish: Fail':
+    Type: Task
+    Resource: arn:aws:states:::sns:publish
+    Arguments:
+      Message: '{% $states.input %}'
+      TopicArn: arn:aws:sns:eu-west-1:[REDACTED]:failure-stepfunction
+    Next: Fail
+  DynamoDB PutItem:
+    Type: Task
+    Resource: arn:aws:states:::dynamodb:putItem
+    Arguments:
+      TableName: TABLE
+      Item:
+        make:
+          S: '{% $make %}'
+        yearOfManufacture:
+          'N': '{% $yearOfManufacture%}'
+        engineCapacity:
+          'N': '{% $engineCapacity %}'
+        co2Emissions:
+          'N': '{% $co2Emissions%}'
+        fuelType:
+          S: '{% $fuelType %}'
+        markedForExport:
+          BOOL: '{% $markedForExport %}'
+        colour:
+          S: '{% $colour %}'
+    Next: 'SNS Publish: Success'
+    Catch:
+      - ErrorEquals:
+          - States.ALL
+        Next: 'SNS Publish: Fail'
+  'SNS Publish: Success':
+    Type: Task
+    Resource: arn:aws:states:::sns:publish
+    Arguments:
+      Message: >-
+        {% 'A ' & $yearOfManufacture & ' ' & $colour & ' ' & $make & ' has been
+        added to DynamoDB on ' & $now() %}
+      TopicArn: arn:aws:sns:eu-west-1:[REDACTED]:success-stepfunction
+    Next: Success
+    Retry:
+      - ErrorEquals:
+          - States.ALL
+        BackoffRate: 2
+        IntervalSeconds: 1
+        MaxAttempts: 3
+    Catch:
+      - ErrorEquals:
+          - States.ALL
+        Next: 'SNS Publish: Fail'
+  Success:
+    Type: Succeed
+  Fail:
+    Type: Fail

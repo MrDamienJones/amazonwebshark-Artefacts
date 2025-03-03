@@ -21,6 +21,14 @@ This list will start with the most recently dated entry, working backwards.
 
 ## 2025
 
+### 2025-03-03-SimplifiedDataWorkflowsWithAWSStepFunctionsVariables
+Related blog post: [Simplified Data Workflows With AWS Step Functions Variables](https://amazonwebshark.com/simplified-data-workflows-with-aws-step-functions-variables/)
+
+Contents:
+
+- JSON Step Functions code for `simplifiedstepfunctionvariablesworkflow` state machine.
+- Supporting [Diagrams.Net](https://app.diagrams.net/) Simplified Data Workflow architectural diagram code.
+
 ### 2025-02-17-LowCodeS3KeyValidationWithAWSStepFunctionsAndJSONata
 Related blog post: [Low-Code S3 Key Validation With AWS Step Functions & JSONata](https://amazonwebshark.com/low-code-s3-key-validation-with-aws-step-functions-jsonata/)
 
